@@ -8,19 +8,27 @@ after_success:
 
 matrix:
   include:
-    - language: java
+    - language: android
       dist: precise
       jdk: oraclejdk7
       install: make install
       script: env | sort && make verify
+      android:
+        components:
+          - build-tools-26.0.2
+          - android-26
       cache:
         directories:
           - $HOME/.m2
-    - language: java
+    - language: android
       dist: precise
       jdk: oraclejdk8
       install: make install
       script: env | sort && make verify
+      android:
+        components:
+          - build-tools-26.0.2
+          - android-26
       cache:
         directories:
           - $HOME/.m2
